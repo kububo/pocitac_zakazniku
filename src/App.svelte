@@ -1,5 +1,12 @@
 <script>
 	import CustomerCounter from './CustomerCounter.svelte';
+	import Settings from './Settings.svelte';
+	
+	let settings;
 </script>
 
-<CustomerCounter maxCustomers={15} />
+{#if !settings}
+	<Settings bind:settings={settings} />
+{:else}
+	<CustomerCounter settings={settings} />
+{/if}
